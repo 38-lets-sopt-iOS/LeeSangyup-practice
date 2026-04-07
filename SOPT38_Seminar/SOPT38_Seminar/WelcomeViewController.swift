@@ -13,7 +13,7 @@ class WelcomeViewController: UIViewController {
     
     let uiImage: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
-        image.image = UIImage(named: "profileImage")
+        image.image = UIImage(named: "profile")
         
         return image
     } ()
@@ -21,7 +21,7 @@ class WelcomeViewController: UIViewController {
     let welcomeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 140, y: 295, width: 100, height: 60))
         label.text = "???님\n반가워요."
-        label.font = .boldSystemFont(ofSize: 25)
+        label.font = UIFont(name: "Pretendard-ExtraBold", size: 25)
         label.numberOfLines = 2
         label.textAlignment = .center
         
@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 20, y: 426, width: 335, height: 52))
         button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
         button.setTitle("메인으로", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 3
@@ -45,7 +45,7 @@ class WelcomeViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 20, y: 498, width: 335, height: 52))
         button.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
         button.setTitle("다시 로그인", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
         button.setTitleColor(.gray, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 3
