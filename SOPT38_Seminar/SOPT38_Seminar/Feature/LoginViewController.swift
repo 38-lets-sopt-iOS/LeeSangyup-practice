@@ -8,13 +8,14 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    // MARK: - UIComponent
     let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 76, y: 169, width: 238, height: 44))
         label.text = "동네라서 가능한 모든 것\n당근에서 가까운 이웃과 함께해요."
         label.font = UIFont(name: "Pretendard-Bold", size: 18)
         label.numberOfLines = 2
         label.textAlignment = .center
-        
         return label
     } ()
     
@@ -26,7 +27,6 @@ class LoginViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 3
-        
         return textField
     }()
     
@@ -38,7 +38,6 @@ class LoginViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 3
-        
         return textField
     }()
     
@@ -51,16 +50,17 @@ class LoginViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 3
         button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
-        
         return button
     }()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
     }
     
+    // MARK: - Layout
     func setUI() {
         view.addSubview(titleLabel)
         view.addSubview(loginTextField)
@@ -68,12 +68,14 @@ class LoginViewController: UIViewController {
         view.addSubview(loginBUtton)
     }
     
+    // MARK: - Action Method
     @objc
     func loginButtonDidTapped() {
         //presentToWelcomeVC()
         navigateToWelcomeVC()
     }
     
+    // MARK: - Navigation Method
     func presentToWelcomeVC() {
         let welcomeViewController = WelcomeViewController()
         welcomeViewController.modalPresentationStyle = .formSheet
