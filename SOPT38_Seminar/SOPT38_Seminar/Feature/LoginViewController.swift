@@ -62,10 +62,10 @@ class LoginViewController: UIViewController {
     
     // MARK: - Layout
     func setUI() {
-        view.addSubview(titleLabel)
-        view.addSubview(loginTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(loginBUtton)
+        view.addSubviews(titleLabel,
+                         loginTextField,
+                         passwordTextField,
+                         loginBUtton)
     }
     
     // MARK: - Action Method

@@ -60,18 +60,16 @@ class WelcomeViewController: UIViewController {
     // MARK: - Layout
     func setUI() {
         view.backgroundColor = .white
-        view.addSubview(uiImage)
-        view.addSubview(welcomeLabel)
-        view.addSubview(mainButton)
-        view.addSubview(reloginButton)
-
+        view.addSubviews(uiImage,
+                         welcomeLabel,
+                         mainButton,
+                         reloginButton)
     }
     
     // MARK: - Private Method
 //    private func bindID() {
 //        welcomeLabel.text = "\(id)님 반가워요!"
 //    }
-    
     
     // MARK: - Data Method
     func configure(id: String?) {
