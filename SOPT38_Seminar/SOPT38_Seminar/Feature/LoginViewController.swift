@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     } ()
     
     let loginTextField: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 20, y: 276, width: 335, height: 52))
+        let textField = UITextField(frame: CGRect(x: 20, y: 277, width: 335, height: 52))
         textField.placeholder = "아이디"
         textField.backgroundColor = .Grey200
         textField.font = UIFont(name: "Pretendard-SemiBold", size: 14)
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }()
     
     let passwordTextField: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 20, y: 334, width: 335, height: 52))
+        let textField = UITextField(frame: CGRect(x: 20, y: 335, width: 335, height: 52))
         textField.placeholder = "비밀번호"
         textField.backgroundColor = .Grey200
         textField.font = UIFont(name: "Pretendard-SemiBold", size: 14)
@@ -41,14 +41,9 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    lazy var loginBUtton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 462, width: 335, height: 52))
-        button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
+    lazy var loginBUtton: BaseFillButton = {
+        let button = BaseFillButton(frame: CGRect(x: 20, y: 515, width: 335, height: 57))
         button.setTitle("로그인하기", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.textAlignment = .center
-        button.layer.cornerRadius = 3
         button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
         return button
     }()

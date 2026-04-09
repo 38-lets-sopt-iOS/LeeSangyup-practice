@@ -27,26 +27,17 @@ class WelcomeViewController: UIViewController {
         return label
     } ()
     
-    lazy var mainButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 426, width: 335, height: 52))
-        button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
+    lazy var mainButton: BaseFillButton = {
+        let button = BaseFillButton(frame: CGRect(x: 20, y: 426, width: 335, height: 57))
         button.setTitle("메인으로", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.textAlignment = .center
-        button.layer.cornerRadius = 3
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         return button
     }()
     
-    let reloginButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 498, width: 335, height: 52))
-        button.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
+    let reloginButton: BaseFillButton = {
+        let button = BaseFillButton(frame: CGRect(x: 20, y: 498, width: 335, height: 57))
         button.setTitle("다시 로그인", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
-        button.setTitleColor(.gray, for: .normal)
-        button.titleLabel?.textAlignment = .center
-        button.layer.cornerRadius = 3
+        button.isEnabled = false
         return button
     }()
     
