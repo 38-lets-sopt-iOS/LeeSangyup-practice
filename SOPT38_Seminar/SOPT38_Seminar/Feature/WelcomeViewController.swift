@@ -7,19 +7,19 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+final class WelcomeViewController: UIViewController {
     
     // MARK: - Properties
     private var id: String?
     
     // MARK: - UIComponent
-    let uiImage: UIImageView = {
+    private let uiImage: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
         image.image = UIImage(named: "profile")
         return image
     } ()
     
-    let welcomeLabel: UILabel = {
+    private let welcomeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 140, y: 295, width: 100, height: 60))
         label.font = UIFont(name: "Pretendard-ExtraBold", size: 25)
         label.numberOfLines = 2
@@ -34,7 +34,7 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
-    let reloginButton: BaseFillButton = {
+    private let reloginButton: BaseFillButton = {
         let button = BaseFillButton(frame: CGRect(x: 20, y: 498, width: 335, height: 57))
         button.setTitle("다시 로그인", for: .normal)
         button.isEnabled = false
@@ -49,7 +49,7 @@ class WelcomeViewController: UIViewController {
     }
     
     // MARK: - Layout
-    func setUI() {
+    private func setUI() {
         view.backgroundColor = .white
         view.addSubviews(uiImage,
                          welcomeLabel,
