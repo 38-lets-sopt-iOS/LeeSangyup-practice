@@ -8,25 +8,11 @@
 import UIKit
 
 extension UIColor {
-    static var Primary_orange: UIColor {
-        return UIColor(hex: "#FF6F0F")
-    }
-    
-    static var Grey500: UIColor {
-        return UIColor(hex: "#626262")
-    }
-    
-    static var Grey400: UIColor {
-        return UIColor(hex: "#9C9C9C")
-    }
-    
-    static var Grey300: UIColor {
-        return UIColor(hex: "#ACB0B9")
-    }
-    
-    static var Grey200: UIColor {
-        return UIColor(hex: "#DDDEE3")
-    }
+    static let Primary_orange = UIColor(hex: "#FF6F0F")
+    static let Grey500 = UIColor(hex: "#626262")
+    static let Grey400 = UIColor(hex: "#9C9C9C")
+    static let Grey300 = UIColor(hex: "#ACB0B9")
+    static let Grey200 = UIColor(hex: "#DDDEE3")
 }
 
 extension UIColor {

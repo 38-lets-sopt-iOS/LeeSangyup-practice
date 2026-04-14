@@ -7,42 +7,40 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - UIComponent
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 76, y: 169, width: 238, height: 44))
         label.text = "동네라서 가능한 모든 것\n당근에서 가까운 이웃과 함께해요."
-        label.font = UIFont(name: "Pretendard-Bold", size: 18)
+        label.font = .subhead1
         label.textColor = .black
         label.numberOfLines = 2
         label.textAlignment = .center
         return label
     } ()
     
-    let loginTextField: UITextField = {
+    private let loginTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 277, width: 335, height: 52))
         textField.placeholder = "아이디"
         textField.backgroundColor = .Grey200
         textField.font = .subhead4
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
-        textField.leftViewMode = .always
+        textField.setLeftPadding(23)
         textField.layer.cornerRadius = 3
         return textField
     }()
     
-    let passwordTextField: UITextField = {
+    private let passwordTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 335, width: 335, height: 52))
         textField.placeholder = "비밀번호"
         textField.backgroundColor = .Grey200
         textField.font = .subhead4
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
-        textField.leftViewMode = .always
+        textField.setLeftPadding(23)
         textField.layer.cornerRadius = 3
         return textField
     }()
     
-    lazy var loginBUtton: BaseFillButton = {
+    lazy var loginButton: BaseFillButton = {
         let button = BaseFillButton(frame: CGRect(x: 20, y: 515, width: 335, height: 57))
         button.setTitle("로그인하기", for: .normal)
         button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
@@ -57,29 +55,29 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Layout
-    func setUI() {
+    private func setUI() {
         view.addSubviews(titleLabel,
                          loginTextField,
                          passwordTextField,
-                         loginBUtton)
+                         loginButton)
     }
     
     // MARK: - Action Method
     @objc
-    func loginButtonDidTapped() {
+    private func loginButtonDidTapped() {
         //presentToWelcomeVC()
         navigateToWelcomeVC()
     }
     
     // MARK: - Navigation Method
-    func presentToWelcomeVC() {
+    private func presentToWelcomeVC() {
         let welcomeViewController = WelcomeViewController()
         welcomeViewController.modalPresentationStyle = .formSheet
         welcomeViewController.configure(id: loginTextField.text)
         self.present(welcomeViewController,animated: true)
     }
     
-    func navigateToWelcomeVC() {
+    private func navigateToWelcomeVC() {
         let welcomeViewController = WelcomeViewController()
         //welcomeViewController.id = loginTextField.text
         welcomeViewController.configure(id: loginTextField.text)
