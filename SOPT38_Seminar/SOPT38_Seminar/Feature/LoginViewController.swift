@@ -40,7 +40,7 @@ final class LoginViewController: UIViewController {
         return textField
     }()
     
-    lazy var loginBUtton: BaseFillButton = {
+    lazy var loginButton: BaseFillButton = {
         let button = BaseFillButton(frame: CGRect(x: 20, y: 515, width: 335, height: 57))
         button.setTitle("로그인하기", for: .normal)
         button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
@@ -59,7 +59,7 @@ final class LoginViewController: UIViewController {
         view.addSubviews(titleLabel,
                          loginTextField,
                          passwordTextField,
-                         loginBUtton)
+                         loginButton)
     }
     
     // MARK: - Action Method
