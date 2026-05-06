@@ -62,7 +62,7 @@ final class LoginAPIViewController: UIViewController {
     
     private func setLayout() {
         idTextField.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(70)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(70)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(50)
         }
@@ -104,7 +104,7 @@ extension LoginAPIViewController {
     @objc private func loginButtonDidTap() {
        Task {
             do {
-                let _ = try await LoginService.shared.postLogin(
+                let _ = try await LoginService.shared.postSignin(
                     loginId: id, password: password
                 )
                 
