@@ -54,7 +54,7 @@ final class MyInformationViewController: UIViewController {
     private func setStyle() {
         view.backgroundColor = .white
         
-        let placeholder = ["아이디", "비밀번호", "이름", "이메일", "나이", "iOS, 안드로이드, 웹 중 하나를 입력해주세요."]
+        let placeholder = ["아이디", "이름", "이메일", "나이", "iOS, 안드로이드, 웹 중 하나를 입력해주세요."]
         
         [idTextField, nameTextField, emailTextField, ageTextField, partTextField]
             .enumerated()
@@ -160,6 +160,11 @@ final class MyInformationViewController: UIViewController {
         ageTextField.text = String(userInfo.age)
         partTextField.text = userInfo.part
         
+        name = userInfo.name
+        email = userInfo.email
+        age = userInfo.age
+        part = userInfo.part
+        
         idTextField.isEnabled = false
         partTextField.isEnabled = false
     }
@@ -186,15 +191,20 @@ extension MyInformationViewController {
     @objc private func editButtonDidTap() {
        Task {
             do {
-//                let _ = try await SignupService.shared.postSignup(
-//                    loginId: id, password: password, name: name, email: email, age: age, part: part
-//                )
-//                
-//                self.navigationController?.pushViewController(LoginAPIViewController(), animated: true)
-                print("회원가입 성공")
+                _ = try await PatchUserInfoService.shared.patchUserInfo(name: name, email: email, age: age, userId: userId
+                )
+                print("정보 수정 성공")
+                let alert = UIAlertController(
+                    title: "수정 완료!", message: "개인 정보 수정이 완료되었습니다",
+                    preferredStyle: .alert
+                )
+                
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
             } catch {
                 let alert = UIAlertController(
-                    title: "회원가입 실패",
+                    title: "개인정보 수정 실패",
                     message : error.localizedDescription,
                     preferredStyle: .alert
                 )
@@ -203,7 +213,7 @@ extension MyInformationViewController {
                 alert.addAction(okAction)
                 self.present(alert, animated: true)
                 
-                print("회원가입 실패", error)
+                print("개인정보 수정 실패", error)
             }
         }
     }
