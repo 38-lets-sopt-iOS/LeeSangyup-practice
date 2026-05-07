@@ -104,11 +104,16 @@ extension LoginAPIViewController {
     @objc private func loginButtonDidTap() {
        Task {
             do {
-                let _ = try await LoginService.shared.postSignin(
+                let response = try await LoginService.shared.postSignin(
                     loginId: id, password: password
                 )
+                let userId = response.data?.userId ?? 0
+                print(userId)
                 
-                self.navigationController?.pushViewController(MyInformationViewController(), animated: true)
+                let myInformationViewController = MyInformationViewController(userId: userId)
+
+                
+                self.navigationController?.pushViewController(myInformationViewController, animated: true)
                 print("로그인 성공")
             } catch {
                 let alert = UIAlertController(
