@@ -11,7 +11,7 @@ struct ProfileButton: View {
     let stateColor: Color
     let profileColor: Color
     
-    var toggleAction: () -> Void
+    let toggleAction: () -> Void
     
     var body: some View {
         Button {
