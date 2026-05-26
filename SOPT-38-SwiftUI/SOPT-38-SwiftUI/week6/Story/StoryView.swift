@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct StoryView: View {
-    @State private var isSelectedProfile = false
-    let userList: UserModel
+    @Binding var activeState: [Bool]
+    
+    let userList: [UserModel]
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 10) {
-                Button {
-                    isSelectedProfile.toggle()
-                } label: {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50)
+                ForEach(userList.indices, id: \.self) { index in
+                    ProfileButton(stateColor: activeState[index] ? .green : .gray, profileColor: activeState[index] ? .blue : .gray, toggleAction: { activeState[index].toggle() })
                 }
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
+

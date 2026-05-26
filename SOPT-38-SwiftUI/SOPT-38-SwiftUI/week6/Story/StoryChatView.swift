@@ -9,23 +9,31 @@ import SwiftUI
 
 struct StoryChatView: View {
     let userList: UserModel
+    let profileColor: Color
+    let indicatorColor: Color
+    let toggleAction: () -> Void
 
     var body: some View {
         HStack(spacing: 0) {
-            Image(systemName: "person.crop.circle.fill")
-                .resizable()
-                .frame(width: 50, height: 50)
+            ProfileButton(stateColor: indicatorColor, profileColor: profileColor, toggleAction: toggleAction)
+                .padding(.trailing, 10)
             
-            VStack(spacing: 5) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text(userList.name)
+                    .font(.headline)
                 
                 Text(userList.message)
+                    .font(.subheadline)
+                    .foregroundStyle(.gray)
             }
             
             Spacer()
             
             Text("오전 09:41")
+                .font(.caption)
+                .foregroundStyle(.gray)
         }
         .padding()
     }
 }
+

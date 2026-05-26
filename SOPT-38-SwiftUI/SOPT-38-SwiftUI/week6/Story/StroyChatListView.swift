@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct StroyChatListView: View {
+    @Binding var activeState: [Bool]
+
     let userLists: [UserModel]
     
     var body: some View {
-        List(userLists) { userList in
-            StoryChatView(userList: userList)
+        List {
+            ForEach(userLists.indices, id: \.self) { index in
+                StoryChatView(
+                    userList: userLists[index],
+                    profileColor: activeState[index] ? .blue : .gray, indicatorColor: activeState[index] ? .green : .gray,
+                    toggleAction: { activeState[index].toggle() }
+                )
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.visible)
+            }
         }
         .listStyle(.plain)
     }
 }
-

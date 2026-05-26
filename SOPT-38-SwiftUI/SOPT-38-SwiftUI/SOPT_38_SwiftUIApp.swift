@@ -15,7 +15,8 @@ struct SOPT_38_SwiftUIApp: App {
 //            trainScrollView()
 //            horizontalScrollView()
 //            CounterView()
-            NavigationPathPractice()
+//            NavigationPathPractice()
+            TotalView()
         }
     }
 }

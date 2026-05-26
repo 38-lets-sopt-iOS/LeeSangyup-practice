@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct TotalView: View {
+    @State private var activeStates: [Bool] = [true, false, false, true, false]
+    
     var body: some View {
         VStack(spacing: 0) {
-            StroyChatListView(userLists: UserModel.users)
+            StoryView(activeState: $activeStates, userList: UserModel.users)
+                .padding()
+            StroyChatListView(activeState: $activeStates, userLists: UserModel.users)
         }
     }
 }
